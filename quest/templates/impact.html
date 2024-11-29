@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section class="impact-section">
+        <h2>Real Time Impact</h2>
+        <p>See the pads donated and girls empowered instantly!</p>
+        <div class="impact-stats">
+            <div class="stat">
+                <h3 id="pads-donated">{{ pads_donated }}</h3>
+                <p>Pads Donated</p>
+            </div>
+            <div class="stat">
+                <h3 id="girls-empowered">{{ girls_empowered }}</h3>
+                <p>Girls Empowered</p>
+            </div>
+        </div>
+    </section>

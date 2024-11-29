@@ -1,0 +1,34 @@
+
+{%load static%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartfelt Stories</title>
+    <link rel="stylesheet" href='{% static "css\styles.css" %}'> <!-- link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Heartfelt Stories</h1>
+        <p>Meet the real heroes and feel the impact of your support!</p>
+    </header>
+    <main>
+        <!-- Testimony section -->
+        <section id="testimonies">
+            <!-- This will be populated dynamically with Django -->
+            <div class="testimony">
+                <img src="" alt="Girl's photo">
+                <h2>Girl's Name</h2>
+                <p>Girl's Testimony</p>
+            </div>
+            <!-- Add more testimonies here -->
+        </section>
+    </main>
+    <script src='{% static "dropdown\script.js" %}'></script> <!-- link to your JavaScript file -->
+</body>
+</html>
+
+
+{% endblock %}

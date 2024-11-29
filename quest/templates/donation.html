@@ -1,0 +1,35 @@
+<!-- templates/donation.html -->
+{% load static %}
+
+<!-- templates/donation.html -->
+<!-- templates/donation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/impact.css' %}">
+    
+</head>
+<body>
+  
+    <section class="donation-section">
+        <h2>Make a Donation</h2>
+		<form method="post" action="{% url 'initiate_snapscan' amount=amount %}">
+            {% csrf_token %}
+            <input type="hidden" name="amount" value="{{ amount }}">
+            <button type="submit">Pay with SnapScan</button>
+        </form>
+        <h3>Bank Transfer Details:</h3>
+        <p>Bank Name: Capitec</p>
+        <p>Account Number: 1869276637</p>
+        <p>Sort Code: </p>
+    </section>
+	
+   
+</body>
+</html>
+
+

@@ -1,0 +1,18 @@
+<!-- templates/error.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <section class="error-section">
+        <h2>Something went wrong</h2>
+        <p>{{ message }}</p>
+        <a href="{% url 'donate' %}">Try Again</a>
+    </section>
+</body>
+</html>

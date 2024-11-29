@@ -1,0 +1,49 @@
+/* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.impact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: palevioletred; /* Optional: Add a background color for better visibility */
+}
+
+.impact-section h2 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.impact-section p {
+    margin-bottom: 40px;
+    font-size: 1.25rem;
+}
+
+.impact-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stat {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px; /* Adjust the width as needed */
+}
+
+.stat h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    font-size: 1rem;
+    color: #666;
+}

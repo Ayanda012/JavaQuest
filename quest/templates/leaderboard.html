@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <ul>
+        {% for entry in leaderboard %}
+        <li>{{ entry.user.username }} - {{ entry.points }} points</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

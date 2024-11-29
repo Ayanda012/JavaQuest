@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goals</title>
+</head>
+<body>
+    <h1>Monthly Goals</h1>
+    <ul>
+        {% for goal in goals %}
+            <li>
+                <h2>{{ goal.month }} {{ goal.year }}</h2>
+                <p>Target Pads: {{ goal.target_pads }}</p>
+                <p>Current Pads: {{ goal.current_pads }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

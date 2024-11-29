@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rewards</title>
+</head>
+<body>
+    <h1>Rewards</h1>
+    <p>Your Points: {{ user_profile.points }}</p>
+    <ul>
+        {% for reward in rewards %}
+            <li>
+                <h2>{{ reward.name }}</h2>
+                <p>{{ reward.description }}</p>
+                <p>Points Required: {{ reward.points_required }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

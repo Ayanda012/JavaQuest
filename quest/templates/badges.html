@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Badges</title>
+</head>
+<body>
+    <h1>Your Badges</h1>
+    <ul>
+        {% for badge in badges %}
+        <li>
+            <img src="{{ badge.image.url }}" alt="{{ badge.name }}">
+            <p>{{ badge.name }}</p>
+            <p>{{ badge.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

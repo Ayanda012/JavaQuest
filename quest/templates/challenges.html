@@ -1,0 +1,38 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Challenges</title>
+    <style>
+        .challenge {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .challenge h2 {
+            margin: 0 0 10px;
+        }
+        .challenge p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Challenges</h1>
+    {% if challenges %}
+        {% for challenge in challenges %}
+            <div class="challenge">
+                <h2>{{ challenge.title }}</h2>
+                <p>Description: {{ challenge.description }}</p>
+                <p>Target Pads: {{ challenge.target_pads }}</p>
+                <p>Start Date: {{ challenge.start_date }}</p>
+                <p>End Date: {{ challenge.end_date }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No challenges available.</p>
+    {% endif %}
+</body>
+</html>
+

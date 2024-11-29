@@ -1,0 +1,84 @@
+{% load static %}
+
+<body>
+    <div class="container">
+        <div class="left-side"></div>
+        <div class="right-side">
+            <h2>Sign Up</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="button-container">
+                    <button type="submit" class="signup-button">Sign Up</button>
+                </div>
+                <br><br>
+                <li><a href="{% url 'login' %}" style="color: palevioletred; text-align: center;">Have an account? Login</a></li>
+            </form>
+        </div>
+    </div>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+        .left-side {
+            flex: 1;
+            background: url('{% static "images/rima.jpeg" %}') no-repeat center center;
+            background-size: cover;
+        }
+        .right-side {
+            flex: 1;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        form {
+            width: 80%;
+            padding: 20px;
+            border: 5px solid gray;
+        }
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: palevioletred;
+        }
+        form input[type="text"],
+        form input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid palevioletred;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .signup-button {
+            padding: 10px 20px;
+            color: white;
+            background-color: plum;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        h2 {
+            color: palevioletred;
+            text-align: center;
+        }
+    </style>
+</body>

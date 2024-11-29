@@ -1,0 +1,63 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Payment</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
+</head>
+<body>
+    <section class="payment-section">
+        <h2>Complete Your Donation</h2>
+        <form id="payment-form">
+            <div>
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" required>
+            </div>
+            <div>
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" required>
+            </div>
+            <div id="card-element"><!-- A Stripe Element will be inserted here. --></div>
+            <button id="submit">Pay</button>
+            <div id="card-errors" role="alert"></div>
+        </form>
+    </section>
+
+    <script>
+        var stripe = Stripe('{{ stripe_public_key }}');
+        var elements = stripe.elements();
+        var card = elements.create('card');
+        card.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var firstName = document.getElementById('first-name').value;
+            var lastName = document.getElementById('last-name').value;
+
+            stripe.confirmCardPayment('{{ client_secret }}', {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: firstName + ' ' + lastName
+                    }
+                }
+            }).then(function(result) {
+                if (result.error) {
+                    // Show error to your customer (e.g., insufficient funds)
+                    document.getElementById('card-errors').textContent = result.error.message;
+                } else {
+                    // The payment has been processed!
+                    if (result.paymentIntent.status === 'succeeded') {
+                        window.location.href = "{% url 'donation_success' %}";
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
